@@ -92,8 +92,8 @@ local layouts = {
 -- {{{ Tags
 tags = {
    names = { " W3B #1 ", " W3B #2 ", " FOR3X ", " OTH3R " },
-   names1 = { " W3B ", " T3RMIN4L ", "CH4T", " FOR3X ", " OTH3R " },
-   names2 = { " T3RMINAL ", " CH4T ", "D4T4", " OTH3R " },
+   names1 = { " W3B ", " T3RMIN4L ", " CH4T ", " FOR3X ", " OTH3R " },
+   names2 = { " T3RMINAL ", " CH4T ", " D4T4 ", " OTH3R " },
    layout = { layouts[1], layouts[3], layouts[2], layouts[4] }
 }
 if screen.count() == 1 then
@@ -636,6 +636,12 @@ root.keys(globalkeys)
 -- }}}
 
 -- {{{ Rules
+if screen.count() == 1
+then
+    chat_tag = tags[1][3]
+else
+    chat_tag = tags[2][2]
+end
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -649,11 +655,10 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-}
+    { rule = { class = "Skype" },
+          properties = { tag = chat_tag }},
 
--- Initializes the windows rules system
--- awfuldb.load(awful.rules.rules, tags)
--- }}}
+}
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.

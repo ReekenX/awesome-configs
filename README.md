@@ -1,0 +1,10 @@
+awesome-configs
+===============
+
+Awesome WM (window manager) configuration with Holo theme.
+
+This is custom Awesome theme. I have copied a lot good things from other github friends and made... Just another one Awesome WM configuration with design improvements.
+
+Hope you use it, hope you like it.
+
+I am actively developing it, so please let me know if somethig good/bad happens. Just create new issue in: https://github.com/ReekenX/awesome-configs/issues/new

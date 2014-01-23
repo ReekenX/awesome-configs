@@ -91,9 +91,9 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " W3B #1 ", " W3B #2 ", " FOR3X ", " OTH3R " },
-   names1 = { " W3B ", " T3RMIN4L ", " CH4T ", " FOR3X ", " OTH3R " },
-   names2 = { " T3RMINAL ", " CH4T ", " D4T4 ", " OTH3R " },
+   names = { " P3RSON4L ", " W0RK ", " FOR3X ", " OTH3R " },
+   names1 = { " P3RSON4L ", " W0RK ", " T3RMIN4L ", " CH4T ", " FOR3X ", " OTH3R " },
+   names2 = { " T3RMINAL ", " CH4T ", " T3MP ", " OTH3R " },
    layout = { layouts[1], layouts[3], layouts[2], layouts[4] }
 }
 if screen.count() == 1 then

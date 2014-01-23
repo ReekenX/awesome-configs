@@ -8,19 +8,19 @@
 --]]
 
 -- {{{ Required libraries
-local gears     = require("gears")
-local awful     = require("awful")
-awful.rules     = require("awful.rules")
-local wibox     = require("wibox")
-local beautiful = require("beautiful")
-local naughty   = require("naughty")
-local lain      = require("lain")
-local conf      = require("config")
+local gears       = require("gears")
+local awful       = require("awful")
+awful.rules       = require("awful.rules")
+local wibox       = require("wibox")
+local beautiful   = require("beautiful")
+local naughty     = require("naughty")
+local lain        = require("lain")
+local custom_conf = require("config")
 
 -- Load custom configuration
-f = io.open("custom_config.lua")
+f = io.open(os.getenv("HOME").."/.config/awesome/config_do_not_commit.lua")
 if f then
-    local conf  = require("config_do_not_commit")
+    custom_conf  = require("config_do_not_commit")
 end
 -- }}}
 
@@ -142,14 +142,14 @@ calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
 lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "bottom_right" })
 
-if conf.imap_enabled
+if custom_conf.imap_enabled
 then
     -- Imap
     mailpopup = lain.widgets.imap({
-        timeout  = conf.imap_timeout,
-        server   = conf.imap_host,
-        mail     = conf.imap_username,
-        password = conf.imap_password,
+        timeout  = custom_conf.imap_timeout,
+        server   = custom_conf.imap_host,
+        mail     = custom_conf.imap_username,
+        password = custom_conf.imap_password,
         is_plain = false,
         settings = function()
             mail_notification_preset.fg = white
@@ -436,7 +436,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 and conf.imap_enabled then right_layout:add(mailwidget) end
+    if s == 1 and custom_conf.imap_enabled then right_layout:add(mailwidget) end
     if s == 1 then right_layout:add(spr_right) end
     if s == 1 then right_layout:add(prev_icon) end
     if s == 1 then right_layout:add(next_icon) end
@@ -659,6 +659,7 @@ awful.rules.rules = {
           properties = { tag = chat_tag }},
 
 }
+-- }}}
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -684,3 +685,57 @@ client.connect_signal("manage", function (c, startup)
     end)
 end)
 
+-- }}}
+
+-- {{{ Random desktop image
+
+function scandir(directory, filter)
+    local i, t, popen = 0, {}, io.popen
+    if not filter then
+        filter = function(s) return true end
+    end
+    print(filter)
+    for filename in popen('ls -a "'..directory..'"'):lines() do
+        if filter(filename) then
+            i = i + 1
+            t[i] = filename
+        end
+    end
+    return t
+end
+
+
+if string.len(custom_conf.random_photo_path) > 1
+then
+    -- configuration - edit to your liking
+    wp_index = 1
+    wp_timeout  = custom_conf.random_photo_timeout
+    wp_path = custom_conf.random_photo_path
+    wp_filter = function(s) return string.match(s,"%.png$") or string.match(s,"%.jpg$") end
+    wp_files = scandir(wp_path, wp_filter)
+
+    -- setup the timer
+    wp_timer = timer { timeout = wp_timeout }
+    wp_timer:connect_signal("timeout", function()
+
+      -- set wallpaper to current index for all screens
+      for s = 1, screen.count() do
+        gears.wallpaper.maximized(wp_path .. wp_files[wp_index], s, true)
+      end
+
+      -- stop the timer (we don't need multiple instances running at the same time)
+      wp_timer:stop()
+
+      -- get next random index
+      wp_index = math.random( 1, #wp_files)
+
+      --restart the timer
+      wp_timer.timeout = wp_timeout
+      wp_timer:start()
+    end)
+
+    -- initial start when rc.lua is first run
+    wp_timer:start()
+end
+
+-- }}}

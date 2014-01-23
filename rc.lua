@@ -679,8 +679,8 @@ client.connect_signal("manage", function (c, startup)
 
     c:connect_signal("property::urgent", function(c)
         if c.urgent then
-            run_once("beep")
-            naughty.notify({text="Window needs attention: " .. c.name})
+            run_once("beep -f 530 -l 30 -D 100; beep -f 530 -l 30 -D 100; beep -f 530 -l 30 -D 100")
+            naughty.notify({text="Needs attention: " .. c.name})
         end
     end)
 end)

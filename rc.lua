@@ -100,8 +100,8 @@ if screen.count() == 1 then
    tags[1] = awful.tag(tags.names1, 1, tags.layout)
 end
 if screen.count() == 2 then
-   tags[1] = awful.tag(tags.names, 1, tags.layout)
-   tags[2] = awful.tag(tags.names2, 2, tags.layout)
+   tags[1] = awful.tag(tags.names2, 1, tags.layout)
+   tags[2] = awful.tag(tags.names, 2, tags.layout)
 
 end
 -- }}}
@@ -649,7 +649,10 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      keys = clientkeys,
                      buttons = clientbuttons,
-                     focus = true
+                     focus = true,
+                     floating = false,
+                     minimized = false,
+                     maximized = false
                      } },
 
     { rule = { class = "MPlayer" },

@@ -98,11 +98,12 @@ tags = {
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.names1, 1, tags.layout)
+   chat_tag = tags[1][4]
 end
 if screen.count() == 2 then
    tags[1] = awful.tag(tags.names2, 1, tags.layout)
    tags[2] = awful.tag(tags.names, 2, tags.layout)
-
+   chat_tag = tags[2][2]
 end
 -- }}}
 
@@ -636,12 +637,6 @@ root.keys(globalkeys)
 -- }}}
 
 -- {{{ Rules
-if screen.count() == 1
-then
-    chat_tag = tags[1][3]
-else
-    chat_tag = tags[2][2]
-end
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },

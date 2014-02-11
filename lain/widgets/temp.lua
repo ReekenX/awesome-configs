@@ -27,8 +27,8 @@ local function worker(args)
     temp.widget = wibox.widget.textbox('')
 
     function update()
-        local f = io.open("/sys/class/thermal/thermal_zone0/temp")
-        coretemp_now = tonumber(f:read("*all")) / 1000
+        local f = io.popen("sensors -A | grep 'Core 0' | sed 's!Core 0: *+\\([0-9\\.]*\\).*!\\1!' | xargs echo -n")
+        coretemp_now = f:read("*all")
         f:close()
         widget = temp.widget
         settings()

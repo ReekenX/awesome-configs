@@ -438,14 +438,14 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 and custom_conf.imap_enabled then right_layout:add(mailwidget) end
+    if s == 1 then right_layout:add(mpd_icon) end
+    if s == 1 then right_layout:add(musicwidget) end
+    if s == 1 then right_layout:add(bar) end
     if s == 1 then right_layout:add(spr_right) end
     if s == 1 then right_layout:add(prev_icon) end
     if s == 1 then right_layout:add(next_icon) end
     if s == 1 then right_layout:add(stop_icon) end
     if s == 1 then right_layout:add(play_pause_icon) end
-    if s == 1 then right_layout:add(bar) end
-    if s == 1 then right_layout:add(mpd_icon) end
-    if s == 1 then right_layout:add(musicwidget) end
     if s == 1 then right_layout:add(bar) end
     if s == 1 then right_layout:add(spr_very_small) end
     if s == 1 then right_layout:add(volumewidget) end

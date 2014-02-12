@@ -56,7 +56,6 @@ function run_once(cmd)
 end
 
 run_once("skype")
-run_once("dropbox")
 run_once("parcellite")
 run_once("xset b on")
 run_once("numlockx on")

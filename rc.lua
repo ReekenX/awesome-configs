@@ -90,10 +90,10 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " P3RSON4L ", " W0RK ", " FOR3X ", " OTH3R " },
-   names1 = { " P3RSON4L ", " W0RK ", " T3RMIN4L ", " CH4T ", " FOR3X ", " OTH3R " },
-   names2 = { " T3RMINAL ", " CH4T ", " T3MP ", " OTH3R " },
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+   names = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
+   names1 = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
+   names2 = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
+   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.names1, 1, tags.layout)

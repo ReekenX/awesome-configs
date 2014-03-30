@@ -429,27 +429,51 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(first)
-    left_layout:add(mytaglist[s])
-    left_layout:add(spr_small)
     left_layout:add(mylayoutbox[s])
+    left_layout:add(spr_small)
+    left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 and custom_conf.imap_enabled then right_layout:add(mailwidget) end
-    if s == 1 then right_layout:add(mpd_icon) end
-    if s == 1 then right_layout:add(musicwidget) end
-    if s == 1 then right_layout:add(bar) end
-    if s == 1 then right_layout:add(spr_right) end
-    if s == 1 then right_layout:add(prev_icon) end
-    if s == 1 then right_layout:add(next_icon) end
-    if s == 1 then right_layout:add(stop_icon) end
-    if s == 1 then right_layout:add(play_pause_icon) end
-    if s == 1 then right_layout:add(bar) end
-    if s == 1 then right_layout:add(spr_very_small) end
-    if s == 1 then right_layout:add(volumewidget) end
-    if s == 1 then right_layout:add(spr_left) end
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+
+    if screen.count() == 2 and s == 1 then right_layout:add(spr_bottom_right) end
+    if screen.count() == 2 and s == 1 then right_layout:add(tempwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(netdown_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(networkwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(netup_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(fswidget_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(fswidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(memwidget_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(memwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(loadwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(cpu_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(cpuwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(calendar_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(calendarwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(clock_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(clockwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(mpd_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(musicwidget) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(spr_right) end
+    if screen.count() == 2 and s == 1 then right_layout:add(prev_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(next_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(stop_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(play_pause_icon) end
+    if screen.count() == 2 and s == 1 then right_layout:add(bar) end
+    if screen.count() == 2 and s == 1 then right_layout:add(spr_very_small) end
+    if screen.count() == 2 and s == 1 then right_layout:add(volumewidget) end
+
+    if (screen.count() == 2 and s == 2) or (screen.count() == 1) then right_layout:add(wibox.widget.systray()) end
+    if (screen.count() == 2 and s == 2) or (screen.count() == 1) and custom_conf.imap_enabled then right_layout:add(mailwidget) end
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
@@ -468,30 +492,6 @@ for s = 1, screen.count() do
 
         -- Widgets that are aligned to the bottom right
         bottom_right_layout = wibox.layout.fixed.horizontal()
-        bottom_right_layout:add(spr_bottom_right)
-        bottom_right_layout:add(tempwidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(netdown_icon)
-        bottom_right_layout:add(networkwidget)
-        bottom_right_layout:add(netup_icon)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(fswidget_icon)
-        bottom_right_layout:add(fswidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(memwidget_icon)
-        bottom_right_layout:add(memwidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(loadwidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(cpu_icon)
-        bottom_right_layout:add(cpuwidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(calendar_icon)
-        bottom_right_layout:add(calendarwidget)
-        bottom_right_layout:add(bottom_bar)
-        bottom_right_layout:add(clock_icon)
-        bottom_right_layout:add(clockwidget)
-        bottom_right_layout:add(last)
 
         -- Now bring it all together (with the tasklist in the middle)
         bottom_layout = wibox.layout.align.horizontal()
@@ -526,6 +526,14 @@ globalkeys = awful.util.table.join(
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
+
+    awful.key({ modkey }, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()

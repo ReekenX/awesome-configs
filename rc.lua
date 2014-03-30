@@ -482,30 +482,28 @@ for s = 1, screen.count() do
 
     mywibox[s]:set_widget(layout)
 
-    if s == 1 then
-        -- Create the bottom wibox
-        mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 32 })
+    -- Create the bottom wibox
+    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 32 })
 
-        -- Widgets that are aligned to the bottom left
-        bottom_left_layout = wibox.layout.fixed.horizontal()
-        bottom_left_layout:add(awesome_icon)
+    -- Widgets that are aligned to the bottom left
+    bottom_left_layout = wibox.layout.fixed.horizontal()
+    bottom_left_layout:add(awesome_icon)
 
-        -- Widgets that are aligned to the bottom right
-        bottom_right_layout = wibox.layout.fixed.horizontal()
+    -- Widgets that are aligned to the bottom right
+    bottom_right_layout = wibox.layout.fixed.horizontal()
 
-        -- Now bring it all together (with the tasklist in the middle)
-        bottom_layout = wibox.layout.align.horizontal()
-        bottom_layout:set_left(bottom_left_layout)
-        bottom_layout:set_middle(mytasklist[s])
-        bottom_layout:set_right(bottom_right_layout)
-        mybottomwibox[s]:set_widget(bottom_layout)
+    -- Now bring it all together (with the tasklist in the middle)
+    bottom_layout = wibox.layout.align.horizontal()
+    bottom_layout:set_left(bottom_left_layout)
+    bottom_layout:set_middle(mytasklist[s])
+    bottom_layout:set_right(bottom_right_layout)
+    mybottomwibox[s]:set_widget(bottom_layout)
 
-        -- Set proper backgrounds, instead of beautiful.bg_normal
-        mybottomwibox[s]:set_bg("#242424")
+    -- Set proper backgrounds, instead of beautiful.bg_normal
+    mybottomwibox[s]:set_bg("#242424")
 
-        -- Create a borderbox above the bottomwibox
-        lain.widgets.borderbox(mybottomwibox[s], s, { position = "top", color = "#0099CC" } )
-    end
+    -- Create a borderbox above the bottomwibox
+    lain.widgets.borderbox(mybottomwibox[s], s, { position = "top", color = "#0099CC" } )
     mywibox[s]:set_bg(beautiful.topbar_path .. "1920.png")
 
 end

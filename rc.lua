@@ -90,18 +90,20 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
-   names1 = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
-   names2 = { " 0N3 ", " TW0 ", " THR33 ", " F0UR ", "F1V3" },
+   single_screen = { " Design ", " Terminal ", " Time ", " Zone " },
+
+   first_screen = { " Design ", " Time ", " Chat " },
+   second_screen = { " Terminal ", " Zone ", " Hideout " },
+
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 if screen.count() == 1 then
-   tags[1] = awful.tag(tags.names1, 1, tags.layout)
+   tags[1] = awful.tag(tags.single_screen, 1, tags.layout)
    chat_tag = tags[1][4]
 end
 if screen.count() == 2 then
-   tags[1] = awful.tag(tags.names2, 1, tags.layout)
-   tags[2] = awful.tag(tags.names, 2, tags.layout)
+   tags[1] = awful.tag(tags.first_screen, 1, tags.layout)
+   tags[2] = awful.tag(tags.second_screen, 2, tags.layout)
    chat_tag = tags[2][2]
 end
 -- }}}

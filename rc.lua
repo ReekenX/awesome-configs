@@ -528,12 +528,17 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
 
     awful.key({ modkey }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
+    function ()
+        awful.client.focus.byidx(1)
+        if awful.client.ismarked() then
+            awful.screen.focus_relative(-1)
+            awful.client.getmarked()
+        end
+        if client.focus then
+            client.focus:raise()
+        end
+        awful.client.togglemarked()
+    end),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()

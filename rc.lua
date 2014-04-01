@@ -665,8 +665,8 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-    { rule = { class = "Skype" },
-          properties = { tag = chat_tag }},
+    { rule = { type = "dialog" },
+          properties = { floating = true, border_width = 2 } },
 
 }
 -- }}}

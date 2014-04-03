@@ -48,7 +48,7 @@ function fs:show(t_out)
         text = ws,
         timeout = t_out,
         font = 'Courier New 11',
-        position = "bottom_right"
+        position = "top_right"
     })
 end
 

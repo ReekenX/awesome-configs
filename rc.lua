@@ -142,7 +142,7 @@ calendar_icon:set_image(beautiful.calendar)
 calendarwidget = wibox.widget.background()
 calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
-lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "bottom_right" })
+lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "top_right" })
 
 if custom_conf.imap_enabled
 then

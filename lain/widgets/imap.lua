@@ -67,23 +67,20 @@ local function worker(args)
         widget = imap.widget
         settings()
 
-        if mailcount > helpers.get_map(mail) and mailcount >= 1
+        if mailcount >= 1 and mailcount > helpers.get_map(mail)
         then
             if mailcount == 1 then
-                nt = mail .. " has <b>one</b> new message"
-                title = "New message!"
+                nt = mail .. " has one new message"
             else
                 nt = mail .. " has <b>" .. mailcount .. "</b> new messages"
-                title = "New messages!"
             end
-            naughty.notify({ preset = mail_notification_preset, title = title, text = nt, position = "top_right", timeout = 300})
+            naughty.notify({ preset = mail_notification_preset, text = nt })
         end
 
         helpers.set_map(mail, mailcount)
     end
 
     helpers.newtimer(mail, timeout, update, true)
-
     return imap.widget
 end
 

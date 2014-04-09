@@ -51,7 +51,7 @@ local function worker(args)
     function update()
         mail_notification_preset = {
             icon     = helpers.icons_dir .. "mail.png",
-            position = "top_left"
+            position = "top_right"
         }
 
         curl = string.format("%s --url imaps://%s:%s/INBOX -u %s:%s %s -k",

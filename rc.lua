@@ -664,6 +664,9 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
+    { rule_any = { class = {"Git-cola", "Gpicview"} },
+          properties = { floating = true, maximized = true } },
+
     { rule = { type = "dialog" },
           properties = { floating = true, border_width = 2 } },
 

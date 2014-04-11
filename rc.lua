@@ -95,7 +95,7 @@ tags = {
    first_screen = { " Workspace ", " E-mail ", " Todo ", "Calendar" },
    second_screen = { " Terminal ", "Time", " X ", " Y " },
 
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.single_screen, 1, tags.layout)
@@ -664,7 +664,7 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-    { rule_any = { class = {"Git-cola", "Gpicview"} },
+    { rule_any = { class = {"Git-cola", "Gpicview", "Bzr", "weka-gui-GUIChooser"} },
           properties = { floating = true, maximized = true } },
 
     { rule = { type = "dialog" },

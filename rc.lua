@@ -460,8 +460,6 @@ for s = 1, screen.count() do
     if screen.count() == 2 and s == 1 then right_layout:add(calendar_icon) end
     if screen.count() == 2 and s == 1 then right_layout:add(calendarwidget) end
     if screen.count() == 2 and s == 1 then right_layout:add(bottom_bar) end
-    if screen.count() == 2 and s == 1 then right_layout:add(clock_icon) end
-    if screen.count() == 2 and s == 1 then right_layout:add(clockwidget) end
     if screen.count() == 2 and s == 1 then right_layout:add(mpd_icon) end
     if screen.count() == 2 and s == 1 then right_layout:add(musicwidget) end
     if screen.count() == 2 and s == 1 then right_layout:add(bar) end
@@ -499,6 +497,9 @@ for s = 1, screen.count() do
     bottom_layout:set_left(bottom_left_layout)
     bottom_layout:set_middle(mytasklist[s])
     bottom_layout:set_right(bottom_right_layout)
+    bottom_right_layout:add(clock_icon)
+    bottom_right_layout:add(clockwidget)
+    bottom_right_layout:add(spr_very_small)
     mybottomwibox[s]:set_widget(bottom_layout)
 
     -- Set proper backgrounds, instead of beautiful.bg_normal

@@ -662,7 +662,7 @@ awful.rules.rules = {
                      maximized = false
                      } },
 
-    { rule = { class = "MPlayer" },
+    { rule = { class = "mpv" },
           properties = { floating = true } },
 
     { rule_any = { class = {"Git-cola", "Gpicview", "Bzr", "weka-gui-GUIChooser"} },

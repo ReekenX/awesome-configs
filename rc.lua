@@ -95,7 +95,7 @@ tags = {
    first_screen = { " Workspace ", " E-mail ", " Todo ", " Calendar ", " Music " },
    second_screen = { " Terminal ", "Time", " X ", " Y " },
 
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.single_screen, 1, tags.layout)
@@ -522,7 +522,7 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- Take a screenshot
-    awful.key({ modkey }, "p", function() os.execute("scrot") end),
+    awful.key({ modkey }, "p", function() os.execute("scrot -s") end),
 
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),

@@ -79,13 +79,6 @@ editor_cmd = terminal .. " -e " .. editor
 browser    = "google-chrome-beta"
 gui_editor = "gvim"
 musiplr   = terminal .. " -e ncmpcpp "
-
-local layouts = {
-    lain.layout.uselesstile,
-    awful.layout.suit.fair,
-    lain.layout.uselesstile.left,
-    lain.layout.uselesstile.top
-}
 -- }}}
 
 -- {{{ Tags
@@ -95,7 +88,7 @@ tags = {
    first_screen = { " Workspace ", " E-mail ", " Todo ", " Calendar ", " Music " },
    second_screen = { " Terminal ", "Time", " X ", " Y " },
 
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+   layout = { awful.layout.suit.fair, awful.layout.suit.fair, awful.layout.suit.fair, awful.layout.suit.fair, awful.layout.suit.fair, awful.layout.suit.fair, awful.layout.suit.fair }
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.single_screen, 1, tags.layout)
@@ -411,14 +404,7 @@ mytasklist.buttons = awful.util.table.join(
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
-    mylayoutbox[s] = awful.widget.layoutbox(s)
-    mylayoutbox[s]:buttons(awful.util.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
-                           awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
-                           awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
@@ -431,7 +417,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(first)
-    left_layout:add(mylayoutbox[s])
     left_layout:add(spr_small)
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])

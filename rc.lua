@@ -81,8 +81,8 @@ gui_editor = "gvim"
 musiplr   = terminal .. " -e ncmpcpp "
 
 local layouts = {
-    lain.layout.uselesstile,
     awful.layout.suit.fair,
+    lain.layout.uselesstile,
     lain.layout.uselesstile.left,
     lain.layout.uselesstile.top
 }

@@ -411,7 +411,7 @@ mytasklist.buttons = awful.util.table.join(
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
+    -- Create an imagebox widget which will contains an icon indicating which layout we are using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -472,8 +472,8 @@ for s = 1, screen.count() do
     if screen.count() == 2 and s == 1 then right_layout:add(spr_very_small) end
     if screen.count() == 2 and s == 1 then right_layout:add(volumewidget) end
 
-    if (screen.count() == 2 and s == 2) or (screen.count() == 1) then right_layout:add(wibox.widget.systray()) end
     if (screen.count() == 2 and s == 2) or (screen.count() == 1) and custom_conf.imap_enabled then right_layout:add(mailwidget) end
+    if (screen.count() == 2 and s == 2) or (screen.count() == 1) then right_layout:add(wibox.widget.systray()) end
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
@@ -596,7 +596,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
+            -- minimized, since minimized clients can not have the focus.
             c.minimized = true
         end),
     awful.key({ modkey, "Shift" }, "m",
@@ -736,7 +736,7 @@ then
         gears.wallpaper.maximized(wp_path .. wp_files[wp_index], s, true)
       end
 
-      -- stop the timer (we don't need multiple instances running at the same time)
+      -- stop the timer (we don not need multiple instances running at the same time)
       wp_timer:stop()
 
       -- get next random index

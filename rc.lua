@@ -99,12 +99,10 @@ tags = {
 }
 if screen.count() == 1 then
    tags[1] = awful.tag(tags.single_screen, 1, tags.layout)
-   chat_tag = tags[1][4]
 end
 if screen.count() == 2 then
    tags[1] = awful.tag(tags.first_screen, 1, tags.layout)
    tags[2] = awful.tag(tags.second_screen, 2, tags.layout)
-   chat_tag = tags[2][2]
 end
 -- }}}
 

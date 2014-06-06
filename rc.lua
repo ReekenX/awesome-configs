@@ -90,10 +90,10 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   single_screen = { " Workspace ", "Terminal", "Time", " E-mail ", " Todo ", " Calendar ", " Music " },
+   single_screen = { " Workspace ", " Development ", " Agenda ", " Communication ", " Investments ", " Music " },
 
-   first_screen = { " Workspace ", " E-mail ", " Todo ", " Calendar ", " Music " },
-   second_screen = { " Terminal ", "Time", " X ", " Y " },
+   first_screen = { " Workspace ", " Communication ", " Agenda ", " Investments ", " Music " },
+   second_screen = { " Development ", " X ", " Y " },
 
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
